@@ -7,9 +7,16 @@
 	</view>
 </template>
 
-<script setup>
-import { ref } from "vue";
+<script lang="ts" setup>
+import { ref } from "vue"
+import { onReady } from '@dcloudio/uni-app'
+
 const href = ref('https://uniapp.dcloud.io/component/README?id=uniui')
+
+
+onReady(() => {
+	console.log('Ready')
+})
 </script>
 
 <style>

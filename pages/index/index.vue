@@ -7,17 +7,9 @@
 	</view>
 </template>
 
-<script>
-	export default {
-		data() {
-			return {
-				href: 'https://uniapp.dcloud.io/component/README?id=uniui'
-			}
-		},
-		methods: {
-
-		}
-	}
+<script setup>
+import { ref } from "vue";
+const href = ref('https://uniapp.dcloud.io/component/README?id=uniui')
 </script>
 
 <style>

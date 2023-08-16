@@ -29,8 +29,8 @@ onReady(() => {
 })
 </script>
 
-<style>
-@import './index.less';
+<style lang="scss">
+@import './index.scss';
 
 .container {
 	padding: 20px;

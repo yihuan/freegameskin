@@ -1,17 +1,28 @@
 <template>
-	<view class="container">
-		
-		<view class="intro">本项目已包含uni ui组件，无需import和注册，可直接使用。在代码区键入字母u，即可通过代码助手列出所有可用组件。光标置于组件名称处按F1，即可查看组件文档。</view>
-		<text class="intro">详见：</text>
-		<uni-link :href="href" :text="href"></uni-link>
+	<view class="container" :class="className" @click="handleOpen">
+		<h2>{{ title }}</h2>
+		<!-- #ifdef APP-PLUS -->
+		<MyBtn></MyBtn>
+		<!-- #endif -->
 	</view>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { onReady } from '@dcloudio/uni-app'
+import type { Ref } from 'vue'
+import { onLoad, onReady } from '@dcloudio/uni-app'
+import MyBtn from '@/components/my-btn/my-btn.vue'
 
-const href = ref('https://uniapp.dcloud.io/component/README?id=uniui')
+const title: Ref<string> = ref('a')
+const className: Ref<string> = ref('active')
+
+function handleOpen() {
+	console.log('opened')
+}
+
+onLoad(() => {
+	console.log('Loading')
+})
 
 onReady(() => {
 	console.log('Ready')
@@ -19,9 +30,11 @@ onReady(() => {
 </script>
 
 <style>
-	.container {
-		padding: 20px;
-		font-size: 14px;
-		line-height: 24px;
-	}
+@import './index.less';
+
+.container {
+	padding: 20px;
+	font-size: 14px;
+	line-height: 24px;
+}
 </style>

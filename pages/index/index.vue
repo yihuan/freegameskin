@@ -29,11 +29,14 @@ const contentWidth: Ref<number> = ref(375)
 
 const info = uni.getSystemInfoSync()
 statusBarHeight.value = info.statusBarHeight!
+contentWidth.value = info.windowWidth!
 
+// #ifndef H5 || APP-PLUS || MP-ALIPAY
 // 小程序胶囊按你位置
 const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
 navbarHeight.value = menuButtonInfo.bottom - statusBarHeight.value + (menuButtonInfo.top - statusBarHeight.value)
 contentWidth.value = menuButtonInfo.left
+// #endif
 
 function handleOpen() {
 	console.log('opened')

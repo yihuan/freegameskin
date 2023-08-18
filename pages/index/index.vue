@@ -6,13 +6,15 @@
 				<view :style="{ height: statusBarHeight + 'px' }"></view>
 				<view class="navbar-content" :style="{ height: navbarHeight + 'px', width: contentWidth + 'px' }">
 					<view class="navbar-search">
-						<view class="navbar-search__icon"></view>
+						<view class="navbar-search__icon">
+              <uni-icons type="search" size="16" color="#999"></uni-icons>
+            </view>
 						<view class="navbar-search__text">搜索想要的皮肤</view>
 					</view>
 				</view>
 			</view>
 			<!-- navbar 占位元素，将内容撑开防止被 navbar 覆盖 -->
-			<view :style="{ height: navbarHeight + 'px' }"></view>
+			<view :style="{ height: (navbarHeight + statusBarHeight) + 'px' }"></view>
 		</view>
 		<view v-for="item in 100">{{ item }}</view>
 	</view>
@@ -82,9 +84,6 @@ $navbar-height: 45px;
 					padding: 0 10px;
 
 					&__icon {
-						width: 10px;
-						height: 10px;
-						border: 1px red solid;
 						margin-right: 10px;
 					}
 

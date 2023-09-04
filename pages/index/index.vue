@@ -8,12 +8,47 @@
       	<view class="navbar-search__text">搜索想要的皮肤</view>
       </view>
     </NavBar>
+    <Tabs :tabs="tabs" />
 		<view v-for="item in 100">{{ item }}</view>
 	</view>
 </template>
 
 <script lang="ts" setup>
 import { onLoad, onReady } from '@dcloudio/uni-app'
+import { ref } from 'vue'
+import type { Ref } from 'vue'
+import { Tab } from '@/types/ui'
+
+const tabs: Ref<Tab[]> = ref([
+  {
+    label: 'Vue',
+    value: 1
+  },
+  {
+    label: 'React',
+    value: 2
+  },
+  {
+    label: 'Angular',
+    value: 3
+  },
+  {
+    label: 'Uniapp',
+    value: 4
+  },
+  {
+    label: 'Frontend',
+    value: 5
+  },
+  {
+    label: 'Backend',
+    value: 6
+  },
+  {
+    label: 'Java',
+    value: 7
+  }
+])
 
 function handleOpen() {
 	console.log('opened')
